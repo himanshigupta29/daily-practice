@@ -1,0 +1,45 @@
+azure webjobs are part of azure app service.
+
+2 types of webjobs
+1 continuous - eep on checking whether a new picture is added to a shared folder, run continous loop
+tiggered - triggered by an event, scheduled for a specific 
+
+to determine which action web job takes you can write code in multiple lang java, js, shell script power automate
+
+az functions are small pieces of code u run in cloud , without worrying about infra
+
+az functions template
+1 http trigger
+time trigeer - schedule
+blob trigger - new blob
+cosmos trigger - when new doc is uploaded in nodesql db
+
+
+In most cases, the simple administration and more flexible coding model provided by Azure Functions may lead you to choose them in preference to WebJobs. However, you may choose WebJobs for the following reasons:
+
+You want the code to be a part of an existing App Service application and to be managed as part of that application, for example in the same Azure DevOps environment.
+You need close control over the object that listens for events that trigger the code. This object in question is the JobHost class, and you have more flexibility to modify its behavior in WebJobs.
+
+
+Choosing a code-first technology
+If you choose to use a code-first approach, your next choice is between WebJobs and Azure Functions.
+
+Because of the extra features that are included with Azure Functions, including wider ranges of trigger events and supported languages, the ability to develop test code in the browser, and the pay-per-use price model, consider Azure Functions to be your default choice. There are two situations in which WebJobs might be a better choice:
+
+You have an existing Azure App Service application, and you want to model the workflow within the application. This requirement means that the workflow can also be managed as part of the application, for example in an Azure DevOps environment.
+You have specific customizations that you want to make to the JobHost that are not supported by Azure Functions. For example, in a WebJob, you can create a custom retry policy for calls to external systems. This kind of policy can't be configured in an Azure Function.
+Webjobs only supports C# on Microsoft Windows.
+
+
+
+Mixing Technologies
+Remember that there is no requirement for you to use the same technology for different workflows: if your requirements differ, you are likely to reach a different answer at the end of your decision-making process. Furthermore, you can also call one workflow from another. For example, a workflow implemented in Microsoft Power Automate can easily call another that is built as an Azure Function.
+
+One reason to mix the technologies used in your business processes would be to give users control over a small section of a complete workflow. Do this by implementing that section in Microsoft Power Automate, then call that flow from a Logic App, Web Job, or Function.
+
+
+
+
+
+
+
