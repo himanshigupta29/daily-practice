@@ -1,0 +1,45 @@
+'use strict'; 
+
+console.log('================================ begin ===================');
+function evaltest() {
+
+    const test = 22;
+
+    eval("console.log('hi.............', test); ");
+
+    eval("var badidea = 'very bad' ; console.log('hi..', badidea); ");
+    // console.log(badidea);
+
+
+
+}
+
+
+evaltest();
+
+// console.log(badidea);
+
+
+// scope is badidea is creted in runtime not in compile time
+// In strict mode eval will not be able to create new variables; 
+// any variables created by the code being evaluated affect only that code, not the enclosing scope. 
+// 
+
+// var x = 2, y = 3;
+// print(eval("var x = 9; x"));               // prints 9
+// print(x);                                  // prints 9
+// print(eval("'use strict'; var x = 5; x")); // prints 5
+// print(eval("'use strict'; var x = 7; x")); // prints 7
+// print(eval("'use strict'; y"));            // prints 3
+// print(x);                                  // prints 9
+
+
+
+function badIdea() {
+    eval("var oops = 'Ugh!';");
+    console.log(oops);
+}
+badIdea();   // Ugh!
+
+// If the eval(..) had not been present, the oops variable in console.log(oops) would not exist, and would throw a ReferenceError. But eval(..) modifies the scope of the badIdea() function at runtime. This is bad for many reasons, including the performance hit of modifying the already compiled and optimized scope, every time badIdea() runs.
+
